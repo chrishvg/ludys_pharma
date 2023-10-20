@@ -1,0 +1,19 @@
+#Api Pharma Project
+api-pharma/node_modules
+api-pharma/public/hot
+api-pharma/public/storage
+api-pharma/storage/*.key
+api-pharma/vendor
+api-pharma/.env
+api-pharma/.env.backup
+api-pharma/.phpunit.result.cache
+api-pharma/docker-compose.override.yml
+api-pharma/Homestead.json
+api-pharma/Homestead.yaml
+api-pharma/npm-debug.log
+api-pharma/yarn-error.log
+api-pharma/.idea
+api-pharma/.vscode
+
+#Views Pr[';p-lo0]9.env
+.env.backup
