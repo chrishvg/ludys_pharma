@@ -1,33 +1,66 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <v-container>
-    <v-row justify="center" align="center">
-      <v-col cols="auto">
-        <v-btn density="compact">Compact Button</v-btn>
-      </v-col>
+  <div id="app">
+    <v-container>
+      <v-card>
+        <v-tabs
+          v-model="tab"
+          bg-color="#E58045"
+          color="black"
+          stacked
+          grow
+        >
+          <v-tab value="invoices">
+            <v-icon class="invoice-icon" />
 
-      <v-col cols="auto">
-        <v-btn density="comfortable">Comfortable Button</v-btn>
-      </v-col>
+            Facturacion
+          </v-tab>
+          <v-tab value="clients">
+            <v-icon class="client-icon" />
 
-      <v-col cols="auto">
-        <v-btn density="default">Default Button</v-btn>
-      </v-col>
-    </v-row>
-  </v-container>
+            Clientes
+          </v-tab>
+          <v-tab value="reports">
+            <v-icon class="report-icon" />
+
+            Reportes
+          </v-tab>
+        </v-tabs>
+
+        <v-card-text>
+          <v-window v-model="tab">
+            <v-window-item value="invoices">
+              <InvoicesTab/>
+            </v-window-item>
+
+            <v-window-item value="clients">
+              <ClientsTab/>
+            </v-window-item>
+            <v-window-item value="reports">
+              <ReportsTab/>
+            </v-window-item>
+          </v-window>
+        </v-card-text>
+      </v-card>
+    </v-container>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-// Vuetify
 import 'vuetify/styles'
+import InvoicesTab from './components/InvoicesTab'
+import ClientsTab from './components/ClientsTab'
+import ReportsTab from './components/ReportsTab'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    InvoicesTab,
+    ClientsTab,
+    ReportsTab
+  },
+  data: () => ({
+    tab: 'invoices'
+  }),
 }
 
 </script>
@@ -35,10 +68,17 @@ export default {
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+
+.invoice-icon {
+  background: url(/public/invoice-text-edit.svg);
+}
+
+.client-icon {
+  background: url(/public/account-group.svg);
+}
+
+.report-icon {
+  background: url(/public/file-chart.svg);
 }
 </style>
