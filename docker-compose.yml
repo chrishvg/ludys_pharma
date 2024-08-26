@@ -37,7 +37,7 @@ services:
         container_name: pharma-mongo
         image: mongo
         ports:
-            - 27018:27017
+            - 27017:27017
         volumes:
             - 'mongo-data:/data/db'
         networks:

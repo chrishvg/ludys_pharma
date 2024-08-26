@@ -22,6 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('client', ClientController::class);
 
-Route::resource('movies', MovieController::class)->only([
+/*Route::resource('movies', MovieController::class)->only([
     'store'
-]);
+]);*/
